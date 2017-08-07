@@ -1,0 +1,54 @@
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding"><html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+	<div id="dashboard_div" style="border: 1px solid #ccc; margin-top: 1em">
+	<div id="categoryPicker_div"></div>
+	<div id="chart_div" style="width: 900px; height: 500px; padding-top: 15px"></div>
+	    
+    <script language="javascript" type="text/javascript">
+      google.charts.load('current', {'packages':['corechart', 'table', 'gauge', 'controls']});
+      google.charts.setOnLoadCallback(drawMainDashboard);
+
+      function drawMainDashboard() {
+      	
+      	var dashboard = new google.visualization.Dashboard(
+         	document.getElementById('dashboard_div'));
+      	
+      	var chart = new google.visualization.ChartWrapper({
+				'chartType': 'LineChart',
+      		'containerId': 'chart_div',
+      		'view': {'columns': [1, 2, 3]}
+      		     		
+      	});
+ 
+      	var categoryPicker = new google.visualization.ControlWrapper({
+      		'controlType': 'CategoryFilter',
+      		'containerId': 'categoryPicker_div',
+      		'options': {
+        			'filterColumnLabel': 'Experiment',
+        			'ui': {
+          			'labelStacking': 'vertical',
+          			'label': 'Experiment Selection:',
+          			'allowTyping': false,
+          			'allowMultiple': false,
+          			'allowNone': false
+        			}
+      		}
+    		});
+    		
+    		
+			//// INSERT DATA HERE        
+
+			dashboard.bind(categoryPicker, chart);
+	      dashboard.draw(data);
+      }
+    </script>
+  </head>
+ <!-- <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+  -->
+</html>

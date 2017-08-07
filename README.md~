@@ -1,0 +1,1 @@
+kaldi_egs_CGN
