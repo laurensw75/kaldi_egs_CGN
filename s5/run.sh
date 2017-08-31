@@ -28,7 +28,7 @@ decode=true	# set to false to disable the decoding-related scripts.
 . utils/parse_options.sh  # e.g. this parses the --stage option if supplied.
 
 cgn=/home/laurensw/Data/CGN			# point this to CGN
-lang="nl"
+lang="vl"
 comp="a;b;c;d;f;g;h;i;j;k;l;m;n;o"
 nj=30;
 decode_nj=10;
@@ -41,7 +41,7 @@ if [ $stage -le 0 ]; then
   local/cgn_data_prep.sh $cgn $lang $comp || exit 1;
 
   # the text in cleaned.gz is used to train the lm..
-  cat data/train/text | cut -d' ' -f2- | gzip -c >data/local/dict_nosp/cleaned.gz
+  cat data/train_s/text data/train_t/text | cut -d' ' -f2- | gzip -c >data/local/dict_nosp/cleaned.gz
   # you are encouraged to use your own additional data for training and tune the pruning
   # in the following script accordingly
   local/cgn_train_lms.sh --dict-suffix "_nosp"
@@ -69,7 +69,7 @@ if [ $stage -le 0 ]; then
 	
   # do a final cleanup
   for x in train_s train_t dev_s dev_t; do
-    utils/fix_data_dir.sh $x
+    utils/fix_data_dir.sh data/$x
   done
 fi
 
