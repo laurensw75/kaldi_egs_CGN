@@ -5,7 +5,12 @@
 # and creates a standard lexicon.txt file with words followed by phonetic transcriptions.
 #
 
-$lang="pron".$ARGV[0]."norm";
+if ($ARGV[0]=='vl') {
+	$lang="pronflnorm";
+} else {
+	$lang="pron".$ARGV[0]."norm";
+}
+
 while (<STDIN>) {
     chop;
     if (m/^\s+<orth>(\S+)<\/orth>/) {
