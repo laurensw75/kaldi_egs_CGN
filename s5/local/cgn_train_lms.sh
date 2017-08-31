@@ -77,7 +77,7 @@ train_lm.sh --arpa --lmtype 4gram-mincount $dir
 # Perplexity over 102584.000000 words (excluding 2158.000000 OOVs) is 146.859389
 # 1.9 million N-grams.
 
-prune_lm.sh --arpa 7.0 $dir/4gram-mincount
+prune_lm.sh --arpa 1.5 $dir/4gram-mincount
 # Perplexity over 102584.000000 words (excluding 2158.000000 OOVs) is 156.526187
 # 0.53 million N-grams
 
