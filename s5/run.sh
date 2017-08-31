@@ -28,7 +28,7 @@ decode=true	# set to false to disable the decoding-related scripts.
 . utils/parse_options.sh  # e.g. this parses the --stage option if supplied.
 
 cgn=/home/laurensw/Data/CGN			# point this to CGN
-lang="vl"
+lang="nl"
 comp="a;b;c;d;f;g;h;i;j;k;l;m;n;o"
 nj=30;
 decode_nj=10;
