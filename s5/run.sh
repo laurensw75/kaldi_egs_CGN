@@ -147,7 +147,7 @@ if [ $stage -le 3 ]; then
       # baseline via LM rescoring of lattices.
       steps/lmrescore.sh --cmd "$decode_cmd" \
         data/lang_nosp_test_tgpr/ data/lang_nosp_test_tg/ \
-        data/dev_${x} exp/train_${x}/tri2b/decode_nosp_tgpr \
+        data/dev_${x} exp/train_${x}/tri2/decode_nosp_tgpr \
         exp/train_${x}/tri2/decode_nosp_tgpr_tg || exit 1;
       # Demonstrating Minimum Bayes Risk decoding (like Confusion Network decoding):
       mkdir exp/train_${x}/tri2/decode_nosp_tgpr_tg_mbr
