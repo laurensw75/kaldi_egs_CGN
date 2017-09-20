@@ -40,7 +40,7 @@ rm -f temp.flist
 IFS=';'
 for l in $lang; do
 	for i in $comps; do
-		find ${cgn}/audio/wav/comp-${i}/${l} -name '*.wav' >>temp.flist
+		find ${cgn}/data/audio/wav/comp-${i}/${l} -name '*.wav' >>temp.flist
 	done
 done
 IFS=' '
