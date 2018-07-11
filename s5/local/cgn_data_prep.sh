@@ -63,6 +63,10 @@ done
 if [ ! -f $dictdir/lexicon.txt ]; then
 	mkdir -p $dictdir
 	cat $cgn/data/lexicon/xml/cgnlex.lex | recode -d h..u8 | perl -CSD $local/format_lexicon.pl $lang | sort >$dictdir/lexicon.txt
+	
+	# Replace the line above with this one for the CGN corpus version 2.x.x
+	# cat $cgn/data/lexicon/xml/cgnlex_2.0.lex | recode -d h..u8 | perl -CSD $local/format_lexicon.pl $lang | sort >$dictdir/lexicon.txt
+
 	## uncomment lines below to convert to UTwente phonetic lexicon	
 	# cp $dictdir/lexicon.txt $dictdir/lexicon.orig.txt	
 	# cat $dictdir/lexicon.orig.txt | perl $local/cgn2nbest_phon.pl >$dictdir/lexicon.txt
