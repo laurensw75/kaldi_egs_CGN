@@ -114,5 +114,9 @@ $spk2gen{"UNKNOWN"}="m";		# unknowns are male
 # and write speakers with gender to specified output
 open(SPK, ">$ARGV[1].spk2gender");
 foreach $spk (sort keys %speakersfound) {
+    # some speakers are not in speakers.txt. We shall assume they are male for no particular reason whatsoever.
+    if (!$spk2gen{$spk}) {
+        $spk2gen{$spk}="m";
+    }
     print SPK "$spk $spk2gen{$spk}\n";
 }
